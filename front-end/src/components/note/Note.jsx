@@ -9,9 +9,26 @@ const NoteEditor = ({ children }) => (
   <div className={styles["note-editor"]}>{children}</div>
 );
 
-export async function deleteNote({ params }) {
-  return fetch(`http://localhost:3000/notes/${params.noteId}`, {
+export async function deleteNote({ request, params }) {
+  const formData = await request.formData();
+  const title = formData.get("title");
+  const body = formData.get("body");
+  const folderId = formData.get("folderId");
+
+  await fetch(`http://localhost:3000/notes/${params.noteId}`, {
     method: "DELETE",
+  });
+
+  return fetch(`http://localhost:3000/archive/`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      title,
+      body,
+      folderId,
+    }),
   }).then(() => {
     return redirect(`/notes/${params.folderId}`);
   });
@@ -50,7 +67,22 @@ const Note = () => {
   return (
     <div className={styles.container}>
       <TopBar>
-        <Form method="DELETE" action="delete">
+        <Form
+          method="DELETE"
+          action="delete"
+          onSubmit={(event) => {
+            event.preventDefault();
+            const formData = new FormData();
+            formData.append("title", note.title);
+            formData.append("body", note.body);
+            formData.append("folderId", note.folderId);
+
+            submit(formData, {
+              method: "DELETE",
+              action: "delete",
+            });
+          }}
+        >
           <button className={styles.button}>
             <img className={styles.image} src={RemoveIcon} />
           </button>

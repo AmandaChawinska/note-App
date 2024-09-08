@@ -17,19 +17,56 @@
       "id": 4
     }
   ],
-  "archive": [],
+  "archive": [
+    {
+      "title": "Nowa notatka",
+      "body": "Tutaj wpisz treść swojej notatki.",
+      "folderId": "4",
+      "id": 1
+    },
+    {
+      "title": "Nowa notatka",
+      "body": "Tutaj wpisz treść swojej notatki.",
+      "folderId": "3",
+      "id": 2
+    },
+    {
+      "title": "Nowa notatkanowa",
+      "body": "Tutaj wpisz treść swojej notatki.",
+      "folderId": "3",
+      "id": 3
+    },
+    {
+      "title": "Nowa notatka",
+      "body": "Tutaj wpisz treść swojej notatki.",
+      "folderId": "3",
+      "id": 4
+    },
+    {
+      "title": "Lista zakupów na wakacje",
+      "body": "\nKup ubezpieczenie,\nKup bilety,\n",
+      "folderId": "1",
+      "id": 5
+    },
+    {
+      "title": "Nowa notatka",
+      "body": "Tutaj wpisz treść swojej notatki.",
+      "folderId": "3",
+      "id": 6
+    },
+    {
+      "title": "Nowa notatka2",
+      "body": "Tutaj wpisz treść swojej notatki.ers",
+      "folderId": "4",
+      "id": 7
+    }
+  ],
   "notes": [
     {
       "id": 7,
       "title": "Sun Tzu",
       "folderId": 2,
       "body": "Osiągnąć sto zwycięstw w stu bitwach nie jest szczytem umiejętności. Szczytem umiejętności jest pokonanie przeciwnika bhghghgz walki. dfgfdgggfgfgfgfdgdfgdgdhghghghffgfgfr"
-    },
-    {
-      "title": "Lista zakupów na wakacje",
-      "body": "\nKup ubezpieczenie,\nKup bilety,\n",
-      "folderId": 1,
-      "id": 8
     },
     {
       "title": "Lista zakupów",
