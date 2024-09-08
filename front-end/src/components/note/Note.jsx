@@ -16,6 +16,39 @@ const NoteEditor = ({ children }) => (
   <div className={styles["note-editor"]}>{children}</div>
 );
 
+export async function deleteNoteFromArchive({ params }) {
+  return fetch(`http://localhost:3000/archive/${params.noteId}`, {
+    method: "DELETE",
+  }).then(() => {
+    return redirect(`/archive`);
+  });
+}
+
+export async function restoreFromArchive({ request, params }) {
+  const formData = await request.formData();
+  const title = formData.get("title");
+  const body = formData.get("body");
+  const folderId = formData.get("folderId");
+
+  await fetch(`http://localhost:3000/archive/${params.noteId}`, {
+    method: "DELETE",
+  });
+
+  return fetch(`http://localhost:3000/notes/`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      title,
+      body,
+      folderId,
+    }),
+  }).then(() => {
+    return redirect(`/notes/${folderId}`);
+  });
+}
+
 export async function deleteNote({ request, params }) {
   const formData = await request.formData();
   const title = formData.get("title");
@@ -72,16 +105,31 @@ const Note = () => {
     [debounce, submit]
   );
 
+  const restoreForm = (
+    <Form
+      onSubmit={(event) => {
+        event.preventDefault();
+        const formData = new FormData();
+        formData.append("title", note.title);
+        formData.append("body", note.body);
+        formData.append("folderId", note.folderId);
+
+        submit(formData, {
+          method: "POST",
+          action: "restore",
+        });
+      }}
+    >
+      <button className={styles.button}>
+        <img className={styles.image} src={RestoreIcon} />
+      </button>
+    </Form>
+  );
+
   return (
     <div className={styles.container}>
       <TopBar>
-        {path.pathname.includes("archive") && (
-          <Form>
-            <button className={styles.button}>
-              <img className={styles.image} src={RestoreIcon} />
-            </button>
-          </Form>
-        )}
+        {path.pathname.includes("archive") && restoreForm}
         <Form
           method="DELETE"
           action="delete"
