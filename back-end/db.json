@@ -1,0 +1,53 @@
+{
+  "folders": [
+    {
+      "name": "Listy",
+      "id": 1
+    },
+    {
+      "name": "Przemyślenia",
+      "id": 2
+    },
+    {
+      "name": "Nowy folder",
+      "id": 3
+    },
+    {
+      "name": "Nowy folder 3",
+      "id": 4
+    }
+  ],
+  "archive": [],
+  "notes": [
+    {
+      "id": 7,
+      "title": "Sun Tzu",
+      "folderId": 2,
+      "body": "Osiągnąć sto zwycięstw w stu bitwach nie jest szczytem umiejętności. Szczytem umiejętności jest pokonanie przeciwnika bhghghgz walki. dfgfdgggfgfgfgfdgdfgdgdhghghghffgfgfr"
+    },
+    {
+      "title": "Lista zakupów na wakacje",
+      "body": "\nKup ubezpieczenie,\nKup bilety,\n",
+      "folderId": 1,
+      "id": 8
+    },
+    {
+      "title": "Lista zakupów",
+      "body": "\n1. Herbata,\n2. Ziemianki,\n 3. Woda gazowana\n",
+      "folderId": 1,
+      "id": 10
+    },
+    {
+      "title": "Kurs React - TODO",
+      "body": "\n1. Napisać odcinki\n2. Nargrać odcinki",
+      "folderId": 1,
+      "id": 15
+    },
+    {
+      "title": "Nowa notatka",
+      "body": "rtrt",
+      "folderId": 2,
+      "id": 16
+    }
+  ]
+}
